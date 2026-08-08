@@ -14,10 +14,10 @@ import routerProvider, {
   UnsavedChangesNotifier,
   DocumentTitleHandler,
 } from "@refinedev/react-router";
-import { dataProvider } from "./providers/data";
-import { Login } from "./pages/login";
-import { Register } from "./pages/register";
-import { ForgotPassword } from "./pages/forgot-password";
+
+// import { Login } from "./pages/login";
+// import { Register } from "./pages/register";
+// import { ForgotPassword } from "./pages/forgot-password";
 import { ErrorComponent } from "./components/refine-ui/layout/error-component";
 import { Layout } from "./components/refine-ui/layout/layout";
 import { Header } from "./components/refine-ui/layout/header";
@@ -29,6 +29,7 @@ import Dashboard from "@/pages/dashboard.tsx";
 import {BookOpen, Home} from "lucide-react";
 import SubjectsList from "@/pages/subjects/list.tsx";
 import SubjectsCreate from "@/pages/subjects/Create.tsx";
+import {dataProvider} from "@/providers/data.ts";
 
 function App() {
   return (
@@ -54,7 +55,7 @@ function App() {
                   name: 'subjects',
                   list: '/subjects',
                   create: '/subjects/create',
-                  meta: {label: 'Subjects', incon: <BookOpen />}
+                  meta: {label: 'Subjects', icon: <BookOpen />}
 
                 }
               ]}
@@ -67,7 +68,7 @@ function App() {
                 } >
                   <Route path='/' element={<Dashboard/>}/>
 
-                  <Route path={"subjects"} >
+                  <Route path="subjects" >
                     <Route index element={<SubjectsList />}/>
                     <Route path="create" element={<SubjectsCreate />} ></Route>
                   </Route>
